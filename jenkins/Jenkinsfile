@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+    stages {
+        stage('Clone Repo') {
+            steps {
+                git 'https://github.com/yourusername/portfolio-ci-demo.git'
+            }
+        }
+ 
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    docker.build("portfolio-app")
+                }
+            }
+        }
+
+        stage('Run Container') {
+            steps {
+                script {
+                    docker.image("portfolio-app").run("-d -p 8081:80")
+                }
+            }
+        }
+    }
+}
