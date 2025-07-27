@@ -1,73 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My Portfolio</title>
-  <style> 
+  <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #f4f4f4;
     }
-    header {
-      background: #333;
-      color: #fff;
-      padding: 1rem 2rem;
-      text-align: center;
+    h1 {
+      color: #333;
     }
-    nav a {
-      margin: 0 15px;
-      color: white;
+    .section {
+      margin-bottom: 30px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    a {
+      color: #0077cc;
       text-decoration: none;
     }
-    section {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-    }
-    h2 {
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 0.5rem;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #222;
-      color: #fff;
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+  <h1>Aditya's Portfolio</h1>
 
-  <header>
-    <h1>Aditya Raghavendran</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <section id="about">
+  <div class="section">
     <h2>About Me</h2>
-    <p>Hello! I'm a web developer passionate about building clean and user-friendly websites and applications.</p>
-  </section>
+    <p>Hello! I'm Aditya, an aspiring developer with a passion for building web applications and learning new technologies.</p>
+  </div>
 
-  <section id="projects">
+  <div class="section">
     <h2>Projects</h2>
     <ul>
-      <li><strong>Portfolio Website:</strong> A personal portfolio to showcase my work.</li>
-      <li><strong>Weather App:</strong> A simple app that shows current weather using an API.</li>
+      <li><strong>Weather App</strong> – A simple app that shows weather data using an API.</li>
+      <li><strong>Task Manager</strong> – A to-do list with CRUD operations.</li>
+      <li><strong>Portfolio Website</strong> – The page you're viewing right now.</li>
     </ul>
-  </section>
+  </div>
 
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>Email: john.doe@example.com</p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/johndoe" target="_blank">johndoe</a></p>
-  </section>
-
+  <div class="section">
+    <h2>Links</h2>
+    <ul>
+      <li><a href="https://github.com/ARP-Proworks07/portfolio-app.git" target="_blank">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/aditya-r-4247a3248/" target="_blank">LinkedIn</a></li>
+      <li><a href="arp.workjimush03@gmail.com">Email Me</a></li>
+    </ul>
+  </div>
 </body>
 </html>

@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                git 'https://github.com/yourusername/portfolio-ci-demo.git'
+                git 'https://github.com/ARP-Proworks07/portfolio-app.git'
             }
         }
  
