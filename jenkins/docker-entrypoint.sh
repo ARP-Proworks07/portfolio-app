@@ -1,11 +1,12 @@
 #!/bin/bash
 
-# Get GID of Docker socket
+# Get the GID of the Docker socket
 DOCKER_GID=$(stat -c '%g' /var/run/docker.sock)
 
-# Create docker group with that GID if it doesn't exist
+# Create a group called docker with the same GID (if not exists)
 if ! getent group docker >/dev/null; then
-    groupadd -g "$DOCKER_GID" docker
+    echo "Creating docker group with GID $DOCKER_GID"
+    groupadd -for -g "$DOCKER_GID" docker
 fi
 
 # Add jenkins user to docker group
@@ -13,5 +14,5 @@ usermod -aG docker jenkins
 
 echo "✅ Jenkins user added to Docker group with GID $DOCKER_GID"
 
-# Run Jenkins using tini directly as PID 1
-exec /usr/bin/tini -- /usr/local/bin/jenkins.sh
+# Execute Jenkins (as jenkins user)
+exec gosu jenkins /usr/local/bin/jenkins.sh
