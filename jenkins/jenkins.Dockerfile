@@ -5,10 +5,8 @@ USER root
 # Install Docker CLI
 RUN apt-get update && apt-get install -y docker.io
 
-# Dynamically get Docker socket GID inside container and create group
-RUN DOCKER_GID=$(stat -c '%g' /var/run/docker.sock) && \
-    groupadd -g $DOCKER_GID docker || true && \
-    usermod -aG docker jenkins
+# Add custom entrypoint
+COPY jenkins/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
-USER jenkins
-
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
